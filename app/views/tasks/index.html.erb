@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Your head content goes here -->
+  <h1>Task Manager</h1>
+</head>
+<body>
+  <div class="container">
+    <!-- Your other content goes here -->
+
+    <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <!-- Your other content for signed-out users goes here -->
+    <% end %>
+  </div>
+
+  <h2>Tasks</h2>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to task.title, task %>
+    </li>
+  <% end %>
+</ul>
+  <%= link_to "New Task", new_task_path %>
+</body>
+</html>
