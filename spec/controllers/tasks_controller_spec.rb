@@ -12,5 +12,14 @@ RSpec.describe TasksController, type: :controller do
     expect(subject.current_user).to_not eq(nil)
   end
 
-  
+  it "should have a current_user" do
+    get :index
+    expect(controller.current_user).to eq(user)
+  end
+
+  it "should return 200:OK" do
+    get :index
+    expect(response).to have_http_status(:success)
+  end
+
 end 
