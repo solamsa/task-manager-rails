@@ -10,7 +10,15 @@
   <div>
     <%= form.label :description %><br>
     <%= form.text_area :description %><br>
-    <% @task.errors.full_messages_for(:body).each do |message| %>
+    <% @task.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+    <div>
+    <%= form.label :due_date %><br>
+    <%= form.datetime_field :due_date %>
+    <% @task.errors.full_messages_for(:due_date).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
