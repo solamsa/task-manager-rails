@@ -16,14 +16,14 @@
   </div>
 
   <h2>Tasks</h2>
-
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-      <%= link_to task.title, task %>
-    </li>
-  <% end %>
-</ul>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= link_to task.title, task %>
+      </li>
+    <% end %>
+  </ul>
   <%= link_to "New Task", new_task_path %>
+  <%= paginate @tasks %>
 </body>
 </html>
