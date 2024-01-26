@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
+# require 'shoulda/matchers'
 
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -37,6 +38,13 @@ RSpec.configure do |config|
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
+  config.before(:each, type: :system) do
+    if ENV["SHOW_BROWSER"] == "true"
+      driven_by :selenium_chrome
+    else
+      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
+    end
+  end
 
   config.include FactoryBot::Syntax::Methods
 
@@ -75,4 +83,12 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, :type => :controller
 
   config.include Warden::Test::Helpers
+  config.use_transactional_fixtures = true
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
