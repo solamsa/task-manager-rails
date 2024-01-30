@@ -83,3 +83,5 @@ gem 'pry'
 gem 'faker'
 
 gem 'kaminari'
+
+gem 'haml', '~> 6.1', '>= 6.1.1'
