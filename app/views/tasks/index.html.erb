@@ -2,19 +2,19 @@
 <html>
 <head>
   <!-- Your head content goes here -->
-  <h1>Task Manager</h1>
-</head>
-<body>
-  <div class="container">
-    <!-- Your other content goes here -->
-
-    <% if user_signed_in? %>
+  <%= link_to "Home", root_path %>
+  <% if user_signed_in? %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
     <% else %>
       <!-- Your other content for signed-out users goes here -->
     <% end %>
-  </div>
-
+  <h1>Task Manager</h1>
+</head>
+<body>
+  <%= form_tag(tasks_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
+  <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
+  <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+  <% end %>
   <h2>Tasks</h2>
   <ul>
     <% @tasks.each do |task| %>
