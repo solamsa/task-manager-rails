@@ -1,8 +1,11 @@
 class TasksController < ApplicationController
-  
+
   def index
-    # @tasks = current_user.tasks
-    @tasks = current_user.tasks.page(params[:page]).per(5)
+    if params[:search]
+      @tasks = current_user.tasks.where("title LIKE ? or description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%").page(params[:page]).per(5)
+    else
+      @tasks = current_user.tasks.page(params[:page]).per(5)
+    end
   end
 
   def show
