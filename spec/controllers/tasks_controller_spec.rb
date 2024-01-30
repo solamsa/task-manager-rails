@@ -18,10 +18,26 @@ RSpec.describe TasksController, type: :controller do
       get :index
       expect(assigns(:tasks)).to eq(user.tasks)
     end
+
+    context "with search parameter" do
+      it "returns tasks matching the search query" do
+        task_with_search_term = create(:task, user: user, title: "SearchTermTask", description:"this is a search test description")
+
+        get :index, params: { search: "SearchTerm" }
+
+        expect(assigns(:tasks)).to include(task_with_search_term)
+      end
+    end
+
+    context "without search parameter" do
+      it "returns all tasks for the current user" do
+        get :index
+        expect(assigns(:tasks)).to eq([task])
+      end
+    end
   end
 
   it "should have a current_user" do
-    # note the fact that you should remove the "validate_session" parameter if this was a scaffold-generated controller
     expect(subject.current_user).to_not eq(nil)
   end
 
@@ -40,4 +56,5 @@ RSpec.describe TasksController, type: :controller do
       expect { delete :destroy, params: { id: task.id } }.to change(Task, :count).by(-1)
     end
   end
+
 end 
