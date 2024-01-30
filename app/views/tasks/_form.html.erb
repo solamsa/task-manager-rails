@@ -24,6 +24,14 @@
   </div>
 
   <div>
+    <%= form.label :priority %><br>
+    <%= form.select :priority, options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'low']]), {}, { id: 'priority' } %>
+    <% @task.errors.full_messages_for(:priority).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
