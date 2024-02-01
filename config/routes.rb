@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :tasks do 
     collection do
       get 'search'
+      get 'complete' 
+      get 'todo'
+      get 'inprogress'
     end
   end
   
