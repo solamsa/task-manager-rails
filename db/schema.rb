@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_31_141655) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_01_080740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
@@ -18,8 +18,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_141655) do
   # Custom types defined in this database.
   # Note that some types may not work with other database engines. Be careful if changing database.
   create_enum "status_enum", ["todo", "inprogress", "complete"]
-  create_enum "task_priority", ["low", "medium", "high"]
-  create_enum "task_status", ["todo", "inprogress", "complete"]
 
   create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
@@ -29,8 +27,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_31_141655) do
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.enum "priority", enum_type: "task_priority"
-    t.enum "status", enum_type: "task_status"
+    t.integer "priority"
+    t.integer "status"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
