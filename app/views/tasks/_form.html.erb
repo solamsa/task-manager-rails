@@ -25,7 +25,15 @@
 
   <div>
     <%= form.label :priority %><br>
-    <%= form.select :priority, options_for_select([['High', 'high'], ['Medium', 'medium'], ['Low', 'low']]), {}, { id: 'priority' } %>
+    <%= form.select :priority, options_for_select(Task.priorities.map { |k, v| [k.capitalize, v] }), {}, { id: 'priority' } %>
+    <% @task.errors.full_messages_for(:priority).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, options_for_select(Task.statuses.map { |k, v| [k.capitalize, v] }), {}, { id: 'status' } %>
     <% @task.errors.full_messages_for(:priority).each do |message| %>
       <div><%= message %></div>
     <% end %>
