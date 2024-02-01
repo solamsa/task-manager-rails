@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-
+  
   def index
     if params[:search]
       @tasks = current_user.tasks.where("title LIKE ? or description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%").page(params[:page]).per(5)
@@ -17,6 +17,8 @@ class TasksController < ApplicationController
   end
 
   def create
+    # binding.pry
+    convert_params
     @task = current_user.tasks.build(task_params)
 
 
@@ -34,7 +36,8 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    
+
+    convert_params
     if @task.update(task_params)
       redirect_to @task
     else
@@ -51,7 +54,12 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :description, :due_date, :priority)
+    params.require(:task).permit(:title, :description, :due_date, :priority, :status)
+  end
+
+  def convert_params
+    params[:task][:priority] = params[:task][:priority].to_i
+    params[:task][:status] = params[:task][:status].to_i
   end
 
 
