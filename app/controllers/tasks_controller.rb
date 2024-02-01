@@ -52,6 +52,20 @@ class TasksController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
+  def complete
+    # binding.pry
+    @tasks = current_user.tasks.complete.page(params[:page]).per(5)
+  end
+
+  def todo
+    @tasks = current_user.tasks.todo.page(params[:page]).per(5)
+  end
+
+  def inprogress
+    @tasks = current_user.tasks.inprogress.page(params[:page]).per(5)
+  end
+
+
   private
   def task_params
     params.require(:task).permit(:title, :description, :due_date, :priority, :status)

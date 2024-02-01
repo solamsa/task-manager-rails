@@ -11,10 +11,18 @@
   <h1>Task Manager</h1>
 </head>
 <body>
-  <%= form_tag(tasks_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
-  <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
-  <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-  <% end %>
+  <div>
+    <%= form_tag(tasks_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
+    <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
+    <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links" %>
+    <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links"%>
+    <%= link_to "To do Tasks", todo_tasks_path, class: "task-links"%>
+  </div>
+ 
   <h2>Tasks</h2>
   <ul>
     <% @tasks.each do |task| %>
@@ -23,7 +31,9 @@
       </li>
     <% end %>
   </ul>
-  <%= link_to "New Task", new_task_path %>
-  <%= paginate @tasks %>
+  <div>
+    <%= link_to "New Task", new_task_path, class: "bottom-task" %>
+    <%= paginate @tasks, class: "bottom-task" %>
+   </div>
 </body>
 </html>
