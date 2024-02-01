@@ -8,6 +8,8 @@
 
 <p style="color: green;"><%= @task.priority %></p>
 
+<p style="color: blue;"><%= @task.status %></p>
+
 <ul>
   <li><%= link_to "Edit", edit_task_path(@task) %></li>
   <li><%= link_to "Destroy", task_path(@task), data: {
