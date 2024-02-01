@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ .task-links {
+  margin-right: 10px; /* Adjust the value based on your preference */
+}
+.new-task {
+  margin-bottom: 10px; /* Adjust the value based on your preference */
+  padding-bottom: 10px;
+  display: block;
+}
