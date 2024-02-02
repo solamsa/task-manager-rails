@@ -2,9 +2,9 @@ class TasksController < ApplicationController
   
   def index
     if params[:search]
-      @tasks = current_user.tasks.where("title LIKE ? or description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%").page(params[:page]).per(5)
+      @tasks = current_user.tasks.order(due_date: :asc).where("title LIKE ? or description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%").page(params[:page]).per(5)
     else
-      @tasks = current_user.tasks.page(params[:page]).per(5)
+      @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(5)
     end
   end
 
@@ -54,15 +54,19 @@ class TasksController < ApplicationController
 
   def complete
     # binding.pry
-    @tasks = current_user.tasks.complete.page(params[:page]).per(5)
+    @tasks = current_user.tasks.order(due_date: :asc).complete.page(params[:page]).per(5)
   end
 
   def todo
-    @tasks = current_user.tasks.todo.page(params[:page]).per(5)
+    @tasks = current_user.tasks.order(due_date: :asc).todo.page(params[:page]).per(5)
   end
 
   def inprogress
-    @tasks = current_user.tasks.inprogress.page(params[:page]).per(5)
+    @tasks = current_user.tasks.order(due_date: :asc).inprogress.page(params[:page]).per(5)
+  end
+
+  def highpriority
+    @tasks = current_user.tasks.order(due_date: :asc).todo.high.page(params[:page]).per(5)
   end
 
 
