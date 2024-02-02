@@ -8,5 +8,8 @@ FactoryBot.define do
   factory :task do
     title {'Test task'}
     description {'This is a proper description'}
+    due_date {Time.now + (2 * 24 * 60 * 60)}
+    status {2}
+    priority {2}
   end
 end
