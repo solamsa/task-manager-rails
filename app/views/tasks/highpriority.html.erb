@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Your head content goes here -->
+  <%= link_to "Home", root_path %>
+  <% if user_signed_in? %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+    <% end %>
+  <h1>Priority to do tasks</h1>
+</head>
+<body>
+  <div>
+    <%= form_tag(tasks_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
+    <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
+    <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% end %>
+  </div>
+ 
+  <h2>High priority to do tasks</h2>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= link_to task.title, task %>
+      </li>
+    <% end %>
+  </ul>
+   <%= paginate @tasks %>
+</body>
+</html>
