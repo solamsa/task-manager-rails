@@ -85,3 +85,7 @@ gem 'faker'
 gem 'kaminari'
 
 gem 'haml', '~> 6.1', '>= 6.1.1'
+
+gem "simplecov", "~> 0.13.0", require: false
+
+
