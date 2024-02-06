@@ -72,6 +72,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem "simplecov", "~> 0.13.0", require: false
 end
 
 gem 'factory_bot_rails'
@@ -86,6 +87,8 @@ gem 'kaminari'
 
 gem 'haml', '~> 6.1', '>= 6.1.1'
 
-gem "simplecov", "~> 0.13.0", require: false
+gem 'bootstrap', '~> 4.6.0'
 
+gem "cssbundling-rails", "~> 1.4"
 
+gem "jsbundling-rails", "~> 1.3"
