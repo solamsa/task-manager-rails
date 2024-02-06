@@ -18,23 +18,57 @@
     <% end %>
   </div>
   <div>
-    <%= link_to "To do Tasks", todo_tasks_path, class: "task-links"%>
-    <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links"%>
-    <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links" %>
+    
+    
+    
     <%= link_to "High priority to do tasks", highpriority_tasks_path, class: "task-links" %>
   </div>
  
-  <h2>Tasks</h2>
-  <ul>
-    <% @tasks.each do |task| %>
-      <li>
-        <%= link_to task.title, task %>
-      </li>
-    <% end %>
-  </ul>
+  <div><h3>Tasks</h3></div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-4">
+      <%= link_to "To do Tasks", todo_tasks_path, class: "task-links"%>
+      <ul>
+      <% @tasks.each do |task| %>
+        <% if task.status == 'todo' %>
+          <li>
+            <%= link_to task.title, task %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    
+    </div>
+    <div class="col-xs-6 col-sm-4"> 
+      <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links"%>
+      <ul>
+      <% @tasks.each do |task| %>
+        <% if task.status == 'inprogress' %>
+          <li>
+            <%= link_to task.title, task %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    </div>
+  
+    <div class="col-xs-6 col-sm-4">
+        <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links" %>
+        <ul>
+      <% @tasks.each do |task| %>
+        <% if task.status == 'complete' %>
+          <li>
+            <%= link_to task.title, task %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    </div>
+  </div>
+
   <div>
     <%= link_to "New Task", new_task_path, class: "bottom-task" %>
-    <%= paginate @tasks, class: "bottom-task" %>
+    <%= paginate @tasks %>
    </div>
 </body>
 </html>
