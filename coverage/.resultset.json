@@ -120,11 +120,15 @@
         null,
         null,
         null,
+        1,
+        1,
+        1,
         null,
         null,
         null,
         null,
-        null
+        null,
+        1
       ],
       "/home/solam/projects/rails/task-manager-rails/config/initializers/content_security_policy.rb": [
         null,
@@ -781,6 +785,6 @@
         null
       ]
     },
-    "timestamp": 1707136370
+    "timestamp": 1707212057
   }
 }

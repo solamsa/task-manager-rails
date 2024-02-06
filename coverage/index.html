@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-05T14:32:50+02:00">2024-02-05T14:32:50+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-06T11:34:17+02:00">2024-02-06T11:34:17+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">90.06%</span></span>
+    (<span class="covered_percent"><span class="green">90.29%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.49
+         1.48
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>25</b> files in total.
-    <b>171</b> relevant lines. 
-    <span class="green"><b>154</b> lines covered</span> and
+    <b>175</b> relevant lines. 
+    <span class="green"><b>158</b> lines covered</span> and
     <span class="red"><b>17</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -163,9 +163,9 @@
       <tr>
         <td class="strong"><a href="#def96b66062547ae36854a7ff14ad7a296389451" class="src_link" title="config/initializers/assets.rb">config/initializers/assets.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>12</td>
-        <td>1</td>
-        <td>1</td>
+        <td>16</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -1856,8 +1856,8 @@
     <h3>config/initializers/assets.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>1</b> relevant lines. 
-      <span class="green"><b>1</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1907,34 +1907,58 @@
           <code class="ruby"># Rails.application.config.assets.paths &lt;&lt; Emoji.images_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">Rails.application.config.assets.paths &lt;&lt; Rails.root.join(&quot;node_modules/bootstrap/dist/js&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"># Precompile additional assets.</code>
+          <code class="ruby">Rails.application.config.assets.paths &lt;&lt; Rails.root.join(&quot;node_modules/bootstrap-icons/font&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"># application.js, application.css, and all non-JS/CSS in the app/assets</code>
+          <code class="ruby">Rails.application.config.assets.paths &lt;&lt; Rails.root.join(&quot;node_modules/bootstrap/dist/js&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby"># folder are already added.</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
+          <code class="ruby"># Precompile additional assets.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"># application.js, application.css, and all non-JS/CSS in the app/assets</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"># folder are already added.</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
           <code class="ruby"># Rails.application.config.assets.precompile += %w( admin.js admin.css )</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">Rails.application.config.assets.precompile &lt;&lt; &quot;bootstrap.min.js&quot;</code>
         </li>
       
     </ol>
