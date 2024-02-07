@@ -27,7 +27,7 @@
   <div><h3>Tasks</h3></div>
   <div class="row">
     <div class="col-xs-6 col-sm-4">
-      <%= link_to "To do Tasks", todo_tasks_path, class: "task-links"%>
+      <%= link_to "To do Tasks", todo_tasks_path, class: "task-links" ,style: "color: red;"%>
       <ul>
       <% @tasks.each do |task| %>
         <% if task.status == 'todo' %>
@@ -40,7 +40,7 @@
     
     </div>
     <div class="col-xs-6 col-sm-4"> 
-      <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links"%>
+      <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links", style: "color: orange;"%>
       <ul>
       <% @tasks.each do |task| %>
         <% if task.status == 'inprogress' %>
@@ -53,7 +53,7 @@
     </div>
   
     <div class="col-xs-6 col-sm-4">
-        <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links" %>
+        <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links", style: "color: green;" %>
         <ul>
       <% @tasks.each do |task| %>
         <% if task.status == 'complete' %>
