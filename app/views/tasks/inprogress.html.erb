@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Your head content goes here -->
-  <%= link_to "Home", root_path %>
   <% if user_signed_in? %>
+    <div>
+      <%= link_to user_avatar(current_user.first_name) , show_user_registration_path%>
+      <%= link_to "Home", root_path %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </div>
     <% else %>
-      <!-- Your other content for signed-out users goes here -->
     <% end %>
-  <h1>Inprogress</h1>
 </head>
 <body>
+  <br>
   <div class="container-fluid">
     <%= form_tag(tasks_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
     <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
