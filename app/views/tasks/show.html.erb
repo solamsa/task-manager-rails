@@ -1,19 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>      
+  <div>
+  <%= link_to user_avatar(current_user.first_name) , show_user_registration_path%>
+  <%= link_to "Home", root_path %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </div>
+</head>
+<body>
+  <h1><%= @task.title %></h1>
 
-<%= link_to "Home", root_path %>
-<h1><%= @task.title %></h1>
+  <p><%= @task.description %></p>
 
-<p><%= @task.description %></p>
+  <p><%= @task.due_date %></p>
 
-<p><%= @task.due_date %></p>
+  <p style="color: green;"><%= @task.priority %></p>
 
-<p style="color: green;"><%= @task.priority %></p>
+  <p style="color: blue;"><%= @task.status %></p>
 
-<p style="color: blue;"><%= @task.status %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_task_path(@task) %></li>
-  <li><%= link_to "Destroy", task_path(@task), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+  <ul>
+    <li><%= link_to "Edit", edit_task_path(@task) %></li>
+    <li><%= link_to "Destroy", task_path(@task), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></li>
+  </ul>
+</body>
