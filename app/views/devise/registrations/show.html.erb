@@ -1,3 +1,22 @@
-<h6><%=@user.first_name %></h6>
-<%= link_to 'Edit Profile', edit_user_registration_path %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Profile</title>
+</head>
+<body>
+  <nav class="header-nav">
+    <%= link_to user_avatar(current_user.first_name), show_user_registration_path %>
+    <%= link_to "Home", root_path %>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </nav>
 
+  <div class="user-profile">
+    <h6><em>Name:</em> <%= @user.first_name %> <%= @user.last_name %></h6>
+    <h6><em>Email:</em> <%= @user.email %></h6>
+  </div>
+  <br>
+
+  <%= link_to 'Edit Profile', edit_user_registration_path, class: 'edit-profile-btn' %>
+
+</body>
+</html>
