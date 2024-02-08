@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-06T11:34:17+02:00">2024-02-06T11:34:17+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-08T10:46:05+02:00">2024-02-08T10:46:05+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">90.29%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.48
+         2.26
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>25</b> files in total.
-    <b>175</b> relevant lines. 
-    <span class="green"><b>158</b> lines covered</span> and
-    <span class="red"><b>17</b> lines missed </span>
+    <b>182</b> relevant lines. 
+    <span class="green"><b>182</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -53,21 +53,21 @@
       <tr>
         <td class="strong"><a href="#f6f6d3e0684449c055b7cdb8f914d1a48e384d8b" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>7</td>
-        <td>3</td>
-        <td>3</td>
+        <td>18</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.7</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#897d5e3cd6c39ec625d27e8fb2ca671ad69dab1f" class="src_link" title="app/controllers/tasks_controller.rb">app/controllers/tasks_controller.rb</a></td>
-        <td class="red strong">59.52 %</td>
+        <td class="green strong">100.0 %</td>
         <td>84</td>
         <td>42</td>
-        <td>25</td>
-        <td>17</td>
-        <td>0.9</td>
+        <td>42</td>
+        <td>0</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -184,8 +184,8 @@
         <td class="strong"><a href="#218beb303f76a502fd4033a5218f8bb5c1286553" class="src_link" title="config/initializers/devise.rb">config/initializers/devise.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>315</td>
-        <td>15</td>
-        <td>15</td>
+        <td>16</td>
+        <td>16</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -247,7 +247,7 @@
         <td>10</td>
         <td>10</td>
         <td>0</td>
-        <td>9.3</td>
+        <td>17.7</td>
       </tr>
       
       <tr>
@@ -321,8 +321,8 @@
     <h3>app/controllers/application_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -336,37 +336,103 @@
           <code class="ruby">class ApplicationController &lt; ActionController::Base</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="2">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  before_action :authenticate_user!</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
+        <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
           <code class="ruby">  protect_from_forgery with: :exception</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="3">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  before_action :authenticate_user!</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  protect_from_forgery with: :exception</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  before_action :configure_permitted_parameters, if: :devise_controller?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  protected</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def configure_permitted_parameters</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="13">
+          <span class="hits">4</span>
+          
+          <code class="ruby">       devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:first_name,:last_name, :email,:password_confirmation, :password)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="15">
+          <span class="hits">4</span>
+          
+          <code class="ruby">       devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:first_name,:last_name, :email, :current_password)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>
@@ -380,11 +446,11 @@
         <div class="source_table" id="897d5e3cd6c39ec625d27e8fb2ca671ad69dab1f">
   <div class="header">
     <h3>app/controllers/tasks_controller.rb</h3>
-    <h4><span class="red">59.52 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>42</b> relevant lines. 
-      <span class="green"><b>25</b> lines covered</span> and
-      <span class="red"><b>17</b> lines missed.</span>
+      <span class="green"><b>42</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -457,8 +523,8 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
-          
+        <li class="covered" data-hits="2" data-linenumber="12">
+          <span class="hits">2</span>
           
           <code class="ruby">    @task = Task.find(params[:id])</code>
         </li>
@@ -481,8 +547,8 @@
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
-          
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">    @task = Task.new</code>
         </li>
@@ -511,14 +577,14 @@
           <code class="ruby">    # binding.pry</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="21">
-          
+        <li class="covered" data-hits="4" data-linenumber="21">
+          <span class="hits">4</span>
           
           <code class="ruby">    convert_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
+        <li class="covered" data-hits="4" data-linenumber="22">
+          <span class="hits">4</span>
           
           <code class="ruby">    @task = current_user.tasks.build(task_params)</code>
         </li>
@@ -535,14 +601,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="4" data-linenumber="25">
+          <span class="hits">4</span>
           
           <code class="ruby">    if @task.save</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="26">
-          
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
           
           <code class="ruby">      redirect_to @task</code>
         </li>
@@ -553,14 +619,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
-          
+        <li class="covered" data-hits="2" data-linenumber="28">
+          <span class="hits">2</span>
           
           <code class="ruby">      render :new, status: :unprocessable_entity</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
+        <li class="covered" data-hits="2" data-linenumber="29">
+          <span class="hits">2</span>
           
           <code class="ruby">      puts @task.errors.full_messages</code>
         </li>
@@ -589,8 +655,8 @@
           <code class="ruby">  def edit </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
-          
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
           <code class="ruby">    @task = Task.find(params[:id])</code>
         </li>
@@ -613,8 +679,8 @@
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
-          
+        <li class="covered" data-hits="3" data-linenumber="38">
+          <span class="hits">3</span>
           
           <code class="ruby">    @task = Task.find(params[:id])</code>
         </li>
@@ -625,20 +691,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="40">
-          
+        <li class="covered" data-hits="3" data-linenumber="40">
+          <span class="hits">3</span>
           
           <code class="ruby">    convert_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="41">
-          
+        <li class="covered" data-hits="3" data-linenumber="41">
+          <span class="hits">3</span>
           
           <code class="ruby">    if @task.update(task_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="42">
-          
+        <li class="covered" data-hits="2" data-linenumber="42">
+          <span class="hits">2</span>
           
           <code class="ruby">      redirect_to @task</code>
         </li>
@@ -649,8 +715,8 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
+        <li class="covered" data-hits="1" data-linenumber="44">
+          <span class="hits">1</span>
           
           <code class="ruby">      render :edit, status: :unprocessable_entity</code>
         </li>
@@ -835,8 +901,8 @@
           <code class="ruby">  def task_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="75">
-          
+        <li class="covered" data-hits="7" data-linenumber="75">
+          <span class="hits">7</span>
           
           <code class="ruby">    params.require(:task).permit(:title, :description, :due_date, :priority, :status)</code>
         </li>
@@ -859,14 +925,14 @@
           <code class="ruby">  def convert_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="79">
-          
+        <li class="covered" data-hits="7" data-linenumber="79">
+          <span class="hits">7</span>
           
           <code class="ruby">    params[:task][:priority] = params[:task][:priority].to_i</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="80">
-          
+        <li class="covered" data-hits="7" data-linenumber="80">
+          <span class="hits">7</span>
           
           <code class="ruby">    params[:task][:status] = params[:task][:status].to_i</code>
         </li>
@@ -1119,7 +1185,7 @@
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">  </code>
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
@@ -2140,8 +2206,8 @@
     <h3>config/initializers/devise.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>15</b> relevant lines. 
-      <span class="green"><b>15</b> lines covered</span> and
+      <b>16</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -3637,10 +3703,10 @@
           <code class="ruby">  # are using only default views.</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="249">
+        <li class="covered" data-hits="1" data-linenumber="249">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # config.scoped_views = false</code>
+          <code class="ruby">  config.scoped_views = true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="250">
@@ -4633,14 +4699,14 @@
           <code class="ruby">    # sequence(:email) {|n| &quot;test -#{n.to_s.rjust(3,&quot;0&quot;)}@sample.com&quot;}</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="4">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="29" data-linenumber="4">
+          <span class="hits">29</span>
           
           <code class="ruby">    email { &#39;user@example.com&#39; }</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="5">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="29" data-linenumber="5">
+          <span class="hits">29</span>
           
           <code class="ruby">    password {&quot;123456&quot;}</code>
         </li>
@@ -4663,32 +4729,32 @@
           <code class="ruby">  factory :task do</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="9">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="24" data-linenumber="9">
+          <span class="hits">24</span>
           
           <code class="ruby">    title {&#39;Test task&#39;}</code>
         </li>
       
-        <li class="covered" data-hits="16" data-linenumber="10">
-          <span class="hits">16</span>
+        <li class="covered" data-hits="29" data-linenumber="10">
+          <span class="hits">29</span>
           
           <code class="ruby">    description {&#39;This is a proper description&#39;}</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="11">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="18" data-linenumber="11">
+          <span class="hits">18</span>
           
           <code class="ruby">    due_date {Time.now + (2 * 24 * 60 * 60)}</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="12">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="18" data-linenumber="12">
+          <span class="hits">18</span>
           
           <code class="ruby">    status {2}</code>
         </li>
       
-        <li class="covered" data-hits="14" data-linenumber="13">
-          <span class="hits">14</span>
+        <li class="covered" data-hits="27" data-linenumber="13">
+          <span class="hits">27</span>
           
           <code class="ruby">    priority {2}</code>
         </li>
