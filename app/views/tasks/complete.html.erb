@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Your head content goes here -->
-  <%= link_to "Home", root_path %>
   <% if user_signed_in? %>
+      <div>
+      <%= link_to user_avatar(current_user.first_name) , show_user_registration_path%>
+      <%= link_to "Home", root_path %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+      </div>
     <% else %>
     <% end %>
   <h1>Complete</h1>
