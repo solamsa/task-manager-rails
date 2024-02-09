@@ -11,5 +11,6 @@ FactoryBot.define do
     due_date {Time.now + (2 * 24 * 60 * 60)}
     status {2}
     priority {2}
+    estimate {3600}
   end
 end
