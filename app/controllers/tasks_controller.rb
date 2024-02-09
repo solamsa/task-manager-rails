@@ -20,6 +20,7 @@ class TasksController < ApplicationController
     # binding.pry
     convert_params
     @task = current_user.tasks.build(task_params)
+    # binding.pry
 
 
     if @task.save
@@ -37,6 +38,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
+
     convert_params
     if @task.update(task_params)
       redirect_to @task
@@ -46,6 +48,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    puts"here"
     @task = Task.find(params[:id])
     @task.destroy
 
@@ -72,12 +75,13 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :description, :due_date, :priority, :status)
+    params.require(:task).permit(:title, :description, :due_date, :priority, :status , :estimate)
   end
 
   def convert_params
     params[:task][:priority] = params[:task][:priority].to_i
     params[:task][:status] = params[:task][:status].to_i
+    params[:task][:estimate] = params[:task][:estimate].to_i
   end
 
 
