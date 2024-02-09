@@ -8,15 +8,19 @@
   </div>
 </head>
 <body>
-  <h1><%= @task.title %></h1>
+  <h3><%= @task.title %></h3>
 
   <p><%= @task.description %></p>
 
   <p><%= @task.due_date %></p>
 
-  <p style="color: green;"><%= @task.priority %></p>
+  <p style="color: green;"><em style="color: black;">priority: </em><%= @task.priority %></p>
 
-  <p style="color: blue;"><%= @task.status %></p>
+  <p style="color: blue;"><em style="color: black;">status: </em><%= @task.status %></p>
+  <%if @task.estimate != nil%>
+
+  <p style="color: red;"><em style="color: black;">estimate: </em><%=distance_of_time_in_words(Time.now, Time.now + @task.estimate.seconds) %></p>
+  <%end%>
 
   <ul>
     <li><%= link_to "Edit", edit_task_path(@task) %></li>
@@ -24,5 +28,6 @@
                       turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
                     } %></li>
+    <li><%= link_to "New task", new_task_path %></li>
   </ul>
 </body>
