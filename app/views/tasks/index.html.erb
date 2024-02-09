@@ -28,8 +28,8 @@
     <div class="col-xs-6 col-sm-4">
       <%= link_to "To do Tasks", todo_tasks_path, class: "task-links" ,style: "color: red;"%>
       <ul>
-      <% @tasks.each do |task| %>
-        <% if task.status == 'todo' %>
+      <% @tasks.where(status: 'todo').each_slice(5) do |tasks_slice| %>
+        <% tasks_slice.each do |task| %>
           <li>
             <%= link_to task.title, task %>
           </li>
@@ -41,8 +41,8 @@
     <div class="col-xs-6 col-sm-4"> 
       <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links", style: "color: orange;"%>
       <ul>
-      <% @tasks.each do |task| %>
-        <% if task.status == 'inprogress' %>
+      <% @tasks.where(status: 'inprogress').each_slice(5) do |tasks_slice| %>
+        <% tasks_slice.each do |task| %>
           <li>
             <%= link_to task.title, task %>
           </li>
@@ -52,16 +52,16 @@
     </div>
   
     <div class="col-xs-6 col-sm-4">
-        <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links", style: "color: green;" %>
-        <ul>
-      <% @tasks.each do |task| %>
-        <% if task.status == 'complete' %>
+      <%= link_to "Complete Tasks", complete_tasks_path, class: "task-links", style: "color: green;" %>
+      <ul>
+        <% @tasks.where(status: 'complete').each_slice(5) do |tasks_slice| %>
+        <% tasks_slice.each do |task| %>
           <li>
             <%= link_to task.title, task %>
           </li>
         <% end %>
       <% end %>
-    </ul>
+      </ul>
     </div>
   </div>
 
