@@ -2,9 +2,12 @@ class TasksController < ApplicationController
   
   def index
     if params[:search]
-      @tasks = current_user.tasks.order(due_date: :asc).where("title LIKE ? or description LIKE ?", "%#{params[:search]}%","%#{params[:search]}%").page(params[:page]).per(5)
+      @tasks = current_user.tasks.order(due_date: :asc)
+      .where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{params[:search].downcase}%","%#{params[:search].downcase}%")
+      .page(params[:page])
+      .per(5)
     else
-      @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(5)
+      @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(15)
     end
   end
 
