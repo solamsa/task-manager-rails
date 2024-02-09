@@ -38,6 +38,16 @@
       <div><%= message %></div>
     <% end %>
   </div>
+  <div>
+    <%= form.label :estimate %><br>
+    <%= form.select :estimate, 
+    [['15 minutes', 15.minutes], ['30 minutes', 30.minutes],
+    ['1 hour', 1.hour], ['2 hours', 2.hours],
+    ['3 hours', 3.hours], ['4 hours', 4.hours], ['8 hours', 8.hours]] %>
+    <% @task.errors.full_messages_for(:estimate).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
 
   <div>
     <%= form.submit %>
