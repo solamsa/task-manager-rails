@@ -46,7 +46,7 @@ RSpec.describe TasksController, type: :controller do
     expect(response).to have_http_status(:success)
   end
 
-  describe 'POST #create' do
+  describe 'POST #destroy' do
     it 'Task is valid' do
       expect(task).to be_valid
     end
