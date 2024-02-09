@@ -48,7 +48,6 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    puts"here"
     @task = Task.find(params[:id])
     @task.destroy
 
