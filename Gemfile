@@ -95,4 +95,6 @@ gem "jsbundling-rails", "~> 1.3"
 
 gem 'initials'
 
+gem 'bootstrap_pagination'
+
 
