@@ -9,7 +9,7 @@
     </div>
     <% else %>
     <% end %>
-  <h1>Task Manager</h1>
+  <h3>Task Manager</h3>
 </head>
 <body>
   <div>
@@ -19,13 +19,11 @@
     <% end %>
   </div>
   <div>
-    
-    
-    
+    <br>
     <%= link_to "High priority to do tasks", highpriority_tasks_path, class: "task-links" %>
   </div>
- 
-  <div><h3>Tasks</h3></div>
+  <br>
+  <div><h4>Tasks</h4></div>
   <div class="row">
     <div class="col-xs-6 col-sm-4">
       <%= link_to "To do Tasks", todo_tasks_path, class: "task-links" ,style: "color: red;"%>
@@ -38,7 +36,7 @@
         <% end %>
       <% end %>
     </ul>
-    
+      
     </div>
     <div class="col-xs-6 col-sm-4"> 
       <%= link_to "In progress Tasks", inprogress_tasks_path, class: "task-links", style: "color: orange;"%>
