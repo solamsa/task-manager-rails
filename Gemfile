@@ -97,4 +97,7 @@ gem 'initials'
 
 gem 'bootstrap_pagination'
 
+gem 'bootstrap5-kaminari-views'
+
+
 
