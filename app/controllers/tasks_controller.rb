@@ -7,7 +7,7 @@ class TasksController < ApplicationController
       .page(params[:page])
       .per(5)
     else
-      @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(15)
+      @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(5)
     end
   end
 
