@@ -1,7 +1,7 @@
 <%= form_with model: task do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title ,required: true%>
+  <div class="mb-3">
+    <%= form.label :title%><br>
+    <%= form.text_field :title ,required: true  %>
     <% @task.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
@@ -49,7 +49,7 @@
     <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class= "mb-3">
+    <%= form.submit "Submit", class: "btn btn-primary"  %>
   </div>
 <% end %>
