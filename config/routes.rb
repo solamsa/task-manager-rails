@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'todo'
       get 'inprogress'
       get 'highpriority'
+      get 'filter_by_status'
 
     end
   end
