@@ -18,10 +18,6 @@ class TasksController < ApplicationController
 
   end
 
-  def filter_by_status
-    @tasks = current_user.tasks.where(status: params[:status]).order(due_date: :asc).page(params[:page]).per(5)
-  end
-
   def show
     @task = Task.find(params[:id])
   end
