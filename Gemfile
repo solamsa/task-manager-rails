@@ -101,3 +101,6 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'jquery-rails'
 
+gem 'hotwire-rails'
+
+
