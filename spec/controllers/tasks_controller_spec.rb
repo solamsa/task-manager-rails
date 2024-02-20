@@ -29,6 +29,16 @@ RSpec.describe TasksController, type: :controller do
       end
     end
 
+      context "with status parameter" do
+        it "returns tasks matching the query query" do
+          task_with_status = create(:task, user: user, title: "SearchTermTask", description:"this is a search test description", status: 0)
+  
+          get :index, params: { status: 0 }
+  
+          expect(assigns(:tasks)).to include(task_with_status)
+        end
+    end
+
     context "without search parameter" do
       it "returns all tasks for the current user" do
         get :index
