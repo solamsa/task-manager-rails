@@ -1,14 +1,21 @@
 class TasksController < ApplicationController
   
   def index
+
     if params[:search]
       @tasks = current_user.tasks.order(due_date: :asc)
       .where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{params[:search].downcase}%","%#{params[:search].downcase}%")
       .page(params[:page])
       .per(5)
+      # binding.pry
+    elsif params[:status].present? && params[:status] != 'all'
+      convert_status
+      @tasks = current_user.tasks.where(status: params[:status]).order(due_date: :asc).page(params[:page]).per(5)
+      # binding.pry
     else
       @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(5)
     end
+
   end
 
   def filter_by_status
@@ -90,5 +97,8 @@ class TasksController < ApplicationController
     params[:task][:estimate] = params[:task][:estimate].to_i
   end
 
+  def convert_status
+    params[:status] = params[:status].to_i
+  end
 
 end
