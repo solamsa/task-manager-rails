@@ -1,0 +1,22 @@
+ <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Status</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Time estimate</th>
+        <th scope="col">Due date</th>
+      </tr>
+    </thead>
+    <tbody id="tasks_body">
+      <% @tasks.each do |task|%>
+        <tr>
+          <td > <%= link_to task.title, task %></td>
+          <td > <%= task.status %></td>
+          <td > <%= task.priority %></td>
+          <td > <%if task.estimate.present? %> <%= distance_of_time_in_words(Time.now, Time.now + task.estimate.seconds)%><%end%> </td>
+          <td > <%if task.due_date.present? %> <%= task.due_date.in_time_zone('Africa/Johannesburg').strftime("%Y-%b-%d %I:%M%p") %><%end%> </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
