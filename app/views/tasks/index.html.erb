@@ -12,7 +12,7 @@
   <p class="h4">Task Manager</p>
 </head>
 <body>
-  <div>
+  <div id="search-box">
     <%= form_tag(tasks_path, method: "get", class: "container") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
@@ -25,36 +25,28 @@
   </div>
   <br>
   <div><h4>Tasks</h4></div>
-    <div>
-      <%= select_tag :status, options_for_select([['all', ''], ['To do', '1'], ['In progress', '2'], ['Complete', '3']]), class: 'form-select', aria: {label: 'Default select tasks'}, id: "status_select" %>
-  </div>
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Status</th>
-        <th scope="col">Priority</th>
-        <th scope="col">Time estimate</th>
-        <th scope="col">Due date</th>
-      </tr>
-    </thead>
-    
-    <% @tasks.each do |task|%>
-    <tbody>
-        <tr>
-          <td > <%= link_to task.title, task %></td>
-          <td > <%= task.status %></td>
-          <td > <%= task.priority %></td>
-          <td > <%if task.estimate != nil%> <%= distance_of_time_in_words(Time.now, Time.now + task.estimate.seconds)%><%end%> </td>
-          <td > <%if task.due_date != nil%> <%= task.due_date.in_time_zone('Africa/Johannesburg').strftime("%Y-%b-%d %I:%M%p") %><%end%> </td>
-        </tr>
-    </tbody>
-     <%end%>
-  </table>
+    <div data-controller="tasks">
+      <div class="mb-3">
 
+     <div id="search-box">
+    <%= form_tag(tasks_path, method: "get", class: "container") do %>
+    <%= select_tag :status, options_for_select([['all', ''], ['To do', 0], ['In progress', 1], ['Complete', 2]])%>
+    <%= submit_tag "filter", class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+      
+    </div>
+
+    <%= turbo_frame_tag "task_table" do%>
+      <div id=table>
+        <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
+      </div>
+    <%end%>
   <div>
     <%= link_to "New Task", new_task_path, class: "bottom-task" %>
     <%= paginate @tasks,  class: "pagination"%>
    </div>
+
+   
 </body>
 </html>
