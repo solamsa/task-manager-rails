@@ -12,6 +12,7 @@
   <p class="h4">Task Manager</p>
 </head>
 <body>
+  <br>
   <div id="search-box">
     <%= form_tag(tasks_path, method: "get", class: "container") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
@@ -37,16 +38,12 @@
       
     </div>
 
-    <%= turbo_frame_tag "task_table" do%>
       <div id=table>
         <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
       </div>
-    <%end%>
   <div>
     <%= link_to "New Task", new_task_path, class: "bottom-task" %>
     <%= paginate @tasks,  class: "pagination"%>
    </div>
-
-   
 </body>
 </html>
