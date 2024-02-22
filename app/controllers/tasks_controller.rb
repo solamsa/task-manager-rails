@@ -15,7 +15,6 @@ class TasksController < ApplicationController
     else
       @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(5)
     end
-
   end
 
   def show
@@ -34,7 +33,10 @@ class TasksController < ApplicationController
 
 
     if @task.save
-      redirect_to @task
+      respond_to do |format|
+        format.html { redirect_to tasks_path, notice: "Quote was successfully created." }
+        format.turbo_stream { redirect_to tasks_path}
+      end
     else
       render :new, status: :unprocessable_entity
       puts @task.errors.full_messages
@@ -51,7 +53,10 @@ class TasksController < ApplicationController
 
     convert_params
     if @task.update(task_params)
-      redirect_to @task
+      respond_to do |format|
+        format.html { redirect_to tasks_path, notice: "Quote was successfully created." }
+        format.turbo_stream { redirect_to tasks_path}
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -60,8 +65,12 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    respond_to do |format|
+      format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
+      format.turbo_stream
+    end
 
-    redirect_to root_path, status: :see_other
+    # redirect_to root_path, status: :see_other
   end
 
   def complete

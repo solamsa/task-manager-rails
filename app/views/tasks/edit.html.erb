@@ -9,5 +9,7 @@
 </head>
 <body>
 <h2>Edit Task</h2>
+<%=turbo_frame_tag @task do%>
   <%= render "form", task: @task %>
+<%end%>
 </body>

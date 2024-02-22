@@ -38,12 +38,15 @@
       
     </div>
 
+
       <div id=table>
-        <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
+          <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
       </div>
   <div>
-    <%= link_to "New Task", new_task_path, class: "bottom-task" %>
-    <%= paginate @tasks,  class: "pagination"%>
+    <%=turbo_frame_tag "form-task-frame" do%>
+      <%= link_to "New Task", new_task_path, class: "bottom-task" %>
+    <%end%>
    </div>
+    <%= paginate @tasks,  class: "pagination"%>
 </body>
 </html>
