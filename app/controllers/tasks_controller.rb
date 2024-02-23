@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     if @task.save
       respond_to do |format|
         format.html { redirect_to tasks_path, notice: "Quote was successfully created." }
-        format.turbo_stream { redirect_to tasks_path}
+        format.turbo_stream
       end
     else
       render :new, status: :unprocessable_entity
@@ -53,7 +53,10 @@ class TasksController < ApplicationController
 
     convert_params
     if @task.update(task_params)
-      redirect_to tasks_path, notice: " was successfully updated."
+      respond_to do |format|
+        format.html { redirect_to tasks_path, notice: "Task was successfully updated." }
+        format.turbo_stream { redirect_to tasks_path}
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -63,7 +66,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
+      format.html { redirect_to quotes_path, notice: "Task was successfully destroyed." }
       format.turbo_stream
     end
 
