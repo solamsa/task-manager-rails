@@ -53,10 +53,7 @@ class TasksController < ApplicationController
 
     convert_params
     if @task.update(task_params)
-      respond_to do |format|
-        format.html { redirect_to tasks_path, notice: "Quote was successfully created." }
-        format.turbo_stream { redirect_to tasks_path}
-      end
+      redirect_to tasks_path, notice: " was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
