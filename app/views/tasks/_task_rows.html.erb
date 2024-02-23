@@ -1,17 +1,16 @@
-
- <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Status</th>
-        <th scope="col">Priority</th>
-        <th scope="col">Time estimate</th>
-        <th scope="col">Due date</th>
-      </tr>
-    </thead>
-    <tbody id="tasks_body">
-      <% @tasks.each do |task|%>
-         <%= render partial: 'task_row', locals: { task: task }%>
-      <%end%>
-    </tbody>
-  </table>
+<div class="table">
+  <div class="thead-dark">
+    <div class="tr">
+      <div class="th" scope="col">Title</div>
+      <div class="th" scope="col">Status</div>
+      <div class="th" scope="col">Priority</div>
+      <div class="th" scope="col">Time estimate</div>
+      <div class="th" scope="col">Due date</div>
+      <div class="th" scope="col">edit</div>
+      <div class="th" scope="col">delete</div>
+    </div>
+  </div>
+  <div class="tbody">
+      <%= render @tasks%>
+  </div>
+</div>
