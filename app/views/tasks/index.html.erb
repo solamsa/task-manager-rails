@@ -40,7 +40,8 @@
 
 
       <div id=table>
-          <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
+        <%= turbo_stream_from "tasks" %>
+        <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
       </div>
   <div>
     <%=turbo_frame_tag "form-task-frame" do%>
