@@ -1,0 +1,43 @@
+table {
+  display: table;
+  width: 100%;
+}
+
+/* Styles for table header */
+.thead-dark {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Styles for table rows */
+.tr {
+  display: table-row;
+}
+
+/* Styles for table cells */
+.th, .td {
+  display: table-cell;
+  padding: 8px;
+  border-bottom: 1px solid #ddd; /* Add a border bottom for each cell */
+  width: 130px
+}
+
+/* Specific styles for table header cells */
+.th {
+  font-weight: bold;
+}
+
+/* Alternative row background color */
+.tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Adjustments for links inside cells */
+.td a {
+  color: #007bff; /* Blue link color */
+  text-decoration: none; /* Remove default underline */
+}
+
+.td a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
