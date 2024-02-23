@@ -40,13 +40,15 @@
 
 
       <div id=table>
-        <%= turbo_stream_from "tasks" %>
         <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
       </div>
+        <%= turbo_frame_tag Task.new%>
   <div>
-    <%=turbo_frame_tag "form-task-frame" do%>
-      <%= link_to "New Task", new_task_path, class: "bottom-task" %>
-    <%end%>
+    
+      <%= link_to "New Task", new_task_path,
+       class: "bottom-task" ,
+       data: { turbo_frame: dom_id(Task.new) }
+       %>
    </div>
     <%= paginate @tasks,  class: "pagination"%>
 </body>
