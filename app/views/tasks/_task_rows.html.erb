@@ -11,6 +11,9 @@
     </div>
   </div>
   <div class="tbody">
+    <%= turbo_frame_tag Task.new%>
+    <%= turbo_frame_tag "tasks" do %>
       <%= render @tasks%>
+    <%end%>
   </div>
 </div>
