@@ -8,8 +8,8 @@
   </div>
 </head>
 <body>
-  <%=turbo_frame_tag "task_frame" do%>
-  <h3><%= @task.title %></h3>
+  <%=turbo_frame_tag @task do%>
+  <p><%= @task.title %><p>
 
   <p><em style="color: black;">Description: </em><%= @task.description %></p>
 
