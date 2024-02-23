@@ -9,7 +9,7 @@
 </head>
 <body>
   <h4>New Task</h4>
-  <%= turbo_frame_tag "form-task-frame" do%>
+  <%= turbo_frame_tag @task do%>
     <%= render "form", task: @task %>
   <%end%>
 </body>
