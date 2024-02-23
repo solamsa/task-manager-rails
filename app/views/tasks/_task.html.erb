@@ -19,7 +19,7 @@
     <% end %>
   </div>
   <div class="td">
-    <%= link_to "Edit", edit_task_path(task) %>
+    <%= link_to "Edit", edit_task_path(task),data: {turbo_frame: task} %>
   </div>
   <div class="td">
     <%= link_to "Destroy", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
