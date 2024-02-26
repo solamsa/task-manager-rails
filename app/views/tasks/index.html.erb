@@ -25,18 +25,14 @@
     <%= link_to "High priority to do tasks", highpriority_tasks_path, class: "task-links" %>
   </div>
   <br>
-  <div><h4>Tasks</h4></div>
     <div data-controller="tasks">
       <div class="mb-3">
-
-     <div id="search-box">
-    <%= form_tag(tasks_path, method: "get", class: "container") do %>
-    <%= select_tag :status, options_for_select([['all', ''], ['To do', 0], ['In progress', 1], ['Complete', 2]])%>
-    <%= submit_tag "filter", class: "btn btn-secondary" %>
-    <% end %>
-  </div>
-      
-    </div>
+        <div class="col-auto my-1">
+        <%= form_tag(tasks_path, method: "get" ,class: "form-select form-select-lg mb-3",id: "status_filter_form") do %>
+          <%= select_tag :status, options_for_select([['all', ''], ['To do', 0], ['In progress', 1], ['Complete', 2]]), prompt: 'Select status', onchange: "submitForm()"%>
+        <% end %>
+        </div>   
+      </div>
 
 
       <div id=table>
@@ -52,4 +48,9 @@
    </div>
     <%= paginate @tasks,  class: "pagination"%>
 </body>
+<script>
+  function submitForm() {
+    document.getElementById("status_filter_form").submit();
+  }
+</script>
 </html>
