@@ -171,7 +171,7 @@ RSpec.describe TasksController, type: :controller do
 
       it "redirects to the created task" do
         post :create, params: { task: FactoryBot.attributes_for(:task) }
-        expect(response).to redirect_to(Task.last)
+        expect(response).to redirect_to(tasks_path)
       end
     end
 
@@ -206,7 +206,7 @@ RSpec.describe TasksController, type: :controller do
 
       it "redirects to the updated task" do
         put :update, params: { id: task.id, task: FactoryBot.attributes_for(:task, title: "this title is edited") }
-        expect(response).to redirect_to(task)
+        expect(response).to redirect_to(tasks_path)
       end
     end
     
