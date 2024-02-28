@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_09_074902) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_27_094444) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
@@ -30,6 +30,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_074902) do
     t.integer "priority"
     t.integer "status"
     t.interval "estimate"
+    t.datetime "completed_at"
+    t.datetime "inprogress_at"
+    t.integer "actual_time"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
