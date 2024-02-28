@@ -1,5 +1,5 @@
 <%= form_with model: task, html: { class: "was-validated" } do |form| %>
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= form.label :title, class: "form-label" %><br>
     <%= form.text_field :title, class: "form-control", required: true %>
     <% @task.errors.full_messages_for(:title).each do |message| %>
@@ -7,23 +7,23 @@
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= form.label :description, class: "form-label" %><br>
-    <%= form.text_area :description, class: "form-control" ,required: true%><br>
+    <%= form.text_area :description, class: "form-control"%><br>
     <% @task.errors.full_messages_for(:description).each do |message| %>
-      <div class="invalid-feedback"><%= message %></div>
+      <div><%= message %></div>
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= form.label :due_date, class: "form-label" %><br>
-    <%= form.datetime_field :due_date, class: "form-control" ,required:true %>
+    <%= form.datetime_field :due_date, class: "form-control", required: true%>
     <% @task.errors.full_messages_for(:due_date).each do |message| %>
       <div class="invalid-feedback"><%= message %></div>
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= form.label :priority, class: "form-label" %><br>
     <%= form.select :priority, options_for_select(Task.priorities.map { |k, v| [k.capitalize, v] }), {}, { id: 'priority', class: 'form-select' } %>
     <% @task.errors.full_messages_for(:priority).each do |message| %>
@@ -31,7 +31,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= form.label :status, class: "form-label" %><br>
     <%= form.select :status, options_for_select(Task.statuses.map { |k, v| [k.capitalize, v] }), {}, { id: 'status', class: 'form-select' } %>
     <% @task.errors.full_messages_for(:status).each do |message| %>
@@ -39,7 +39,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= form.label :estimate, class: "form-label" %><br>
     <%= form.select :estimate, 
       [['15 minutes', 15.minutes], ['30 minutes', 30.minutes],
@@ -52,7 +52,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-4">
+  <div class="mb-3">
     <%= link_to "Cancel", tasks_path, class: "btn btn--light" %>
     <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
