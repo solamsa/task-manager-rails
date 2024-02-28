@@ -66,7 +66,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to quotes_path, notice: "Task was successfully destroyed." }
+      format.html { redirect_to tasks_path, notice: "Task was successfully destroyed." }
       format.turbo_stream
     end
 
