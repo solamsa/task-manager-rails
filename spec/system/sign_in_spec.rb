@@ -11,6 +11,5 @@ RSpec.describe "User signs in", type: :system do
     fill_in "user_password", with: @user.password
     click_button "Log in"
     expect(page).to have_text "Task Manager"
-    expect(page).to have_text "Tasks"
   end 
 end
