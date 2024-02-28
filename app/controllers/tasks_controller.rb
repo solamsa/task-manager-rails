@@ -12,6 +12,8 @@ class TasksController < ApplicationController
       convert_status
       @tasks = current_user.tasks.where(status: params[:status]).order(due_date: :asc).page(params[:page]).per(5)
       # binding.pry
+    elsif params[:highpriority].present?
+      @tasks = current_user.tasks.order(due_date: :asc).todo.high.page(params[:page]).per(5)
     else
       @tasks = current_user.tasks.order(due_date: :asc).page(params[:page]).per(5)
     end
@@ -86,9 +88,9 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.order(due_date: :asc).inprogress.page(params[:page]).per(5)
   end
 
-  def highpriority
-    @tasks = current_user.tasks.order(due_date: :asc).todo.high.page(params[:page]).per(5)
-  end
+  # def highpriority
+  #   @tasks = current_user.tasks.order(due_date: :asc).todo.high.page(params[:page]).per(5)
+  # end
 
 
   private
