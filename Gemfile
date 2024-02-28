@@ -103,4 +103,6 @@ gem 'jquery-rails'
 
 gem 'hotwire-rails'
 
+gem 'gruff'
+
 
