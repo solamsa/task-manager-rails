@@ -22,8 +22,8 @@
 
   <div>
     <br>
-    <%= link_to "High priority to do tasks", highpriority_tasks_path, class: "task-links" %>
-  </div>
+    <%= link_to "High priority to do tasks", tasks_path(highpriority: true), class: "task-links" %>
+    </div>
   <br>
     <div data-controller="tasks">
       <div class="mb-3">
