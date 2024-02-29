@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+
   enum status: { todo: 0, inprogress: 1, complete: 2 }
   enum priority: { low: 0, medium: 1, high: 2 }
 
