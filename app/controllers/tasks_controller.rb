@@ -75,23 +75,10 @@ class TasksController < ApplicationController
     # redirect_to root_path, status: :see_other
   end
 
-  def complete
-    # binding.pry
-    @tasks = current_user.tasks.order(due_date: :asc).complete.page(params[:page]).per(5)
+
+  def show_graph
+    @tasks = generate_graph
   end
-
-  def todo
-    @tasks = current_user.tasks.order(due_date: :asc).todo.page(params[:page]).per(5)
-  end
-
-  def inprogress
-    @tasks = current_user.tasks.order(due_date: :asc).inprogress.page(params[:page]).per(5)
-  end
-
-  # def highpriority
-  #   @tasks = current_user.tasks.order(due_date: :asc).todo.high.page(params[:page]).per(5)
-  # end
-
 
   private
   def task_params
@@ -106,6 +93,23 @@ class TasksController < ApplicationController
 
   def convert_status
     params[:status] = params[:status].to_i
+  end
+
+  def generate_graph
+    data_hash = {}
+    data_points = []
+    data_labels = []
+    g = Gruff::Line.new(400)
+    @tasks = current_user.tasks.order(created_at: :asc)
+
+    @tasks.each do |task,index|
+      data_points << task.actual_time
+      data_hash[index] = task.description
+    end
+    g.title = 'estimate graph'
+    g.data('Tasks', data_points)
+    g.labels = data_hash
+    send_data g.to_image.to_blob, type: 'image/png', disposition: 'inline'
   end
 
 end
