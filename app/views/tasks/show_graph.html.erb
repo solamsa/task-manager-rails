@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% if user_signed_in? %>
+    <div>
+      <%= link_to user_avatar(current_user.first_name) , show_user_registration_path%>
+      <%= link_to "Home", root_path %>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  </div>
+    <% else %>
+    <% end %>
+</head>
+<body>
+  <br>
+  <div >
+    <%= image_tag show_graph_tasks_path(format: 'png') %>
+  </div>
+</body>
+</html>
