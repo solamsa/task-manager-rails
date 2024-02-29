@@ -110,9 +110,11 @@ class TasksController < ApplicationController
       end
     end
     puts data_hash
-    g.title = 'estimate graph'
+    g.title = 'estimate offset graph'
     g.data('Tasks', data_points)
     g.labels = data_hash
+    g.x_axis_label = "Task"
+    g.y_axis_label = "Estimate Offset %"
     send_data g.to_image.to_blob, type: 'image/png', disposition: 'inline'
   end
 
