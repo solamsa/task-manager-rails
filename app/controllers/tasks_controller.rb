@@ -98,18 +98,26 @@ class TasksController < ApplicationController
   def generate_graph
     data_hash = {}
     data_points = []
-    data_labels = []
-    g = Gruff::Line.new(400)
-    @tasks = current_user.tasks.order(created_at: :asc)
 
-    @tasks.each do |task,index|
-      data_points << task.actual_time
-      data_hash[index] = task.description
+    g = Gruff::Line.new(500)
+    @tasks = current_user.tasks.order(created_at: :asc)
+    num = 0
+    @tasks.each do |task| 
+      if task.actual_time.present?
+        data_points << cal_estimate(task)
+        data_hash[num] = num
+        num += 1
+      end
     end
+    puts data_hash
     g.title = 'estimate graph'
     g.data('Tasks', data_points)
     g.labels = data_hash
     send_data g.to_image.to_blob, type: 'image/png', disposition: 'inline'
+  end
+
+  def cal_estimate(task)
+    data_point = (((task.actual_time.to_i - task.estimate.to_i).to_f/task.actual_time.to_i.abs()) * 100)
   end
 
 end
