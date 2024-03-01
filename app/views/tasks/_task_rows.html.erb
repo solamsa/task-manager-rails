@@ -15,5 +15,9 @@
     <%= turbo_frame_tag "tasks" do %>
       <%= render @tasks%>
     <%end%>
+    <%if @tasks.length == 0%>
+      <p>No tasks found</p>
+    <%end%>
   </div>
+  <div >
 </div>
