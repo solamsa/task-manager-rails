@@ -2,55 +2,58 @@
 <html>
 <head>
   <% if user_signed_in? %>
-    <nav class="navbar navbar-dark bg-dark">
-      <%= link_to user_avatar(current_user.first_name) , show_user_registration_path%>
-      <%= link_to "Home", root_path %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <%= link_to user_avatar(current_user.first_name) , show_user_registration_path, style: "color: black;"%>
+      <%= link_to "Home", root_path ,style: "color: black;"%>
+      <%= link_to 'Logout', destroy_user_session_path, method: :delete, style: "color: black;" %>
     </nav>
     <% else %>
     <% end %>
-  <p class="h4">Task Manager</p>
+  
 </head>
 <body>
-  <br>
-  <div id="search-box">
-    <%= form_tag(tasks_path, method: "get", class: "container") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-
-  <div>
+  <div class="container-fluid">
+    <div class = "row">
+    <nav class="col-sm-5 col-md-2 d-none d-sm-block bg-dark sidebar">
+      <ul class="nav flex-column">
+      <li class= "nav-item"><%= link_to "🔝 High priority", tasks_path(highpriority: true), class:"nav-link no-wrap" ,style: "color: white;"%></li>
+       <li class= "nav-item"> <%= link_to " 📈 offset graph", show_graph_tasks_path, class:"nav-link no-wrap",style: "color: white;"%></li>
+      </ul>
+      </nav>
+    <main class="col-sm-9 col-md-10 col-sm-9 ml-sm-auto pt-3 pl-md-5 mb-4" role="main">
+    <p class="h4">Task Manager</p>
     <br>
-    <%= link_to "High priority to do tasks", tasks_path(highpriority: true), class: "task-links" %>
+    <div id="search-box">
+      <%= form_tag(tasks_path, method: "get", class: "container") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    <div>
-      <br>
-      <%= link_to "show estimation graph", show_graph_tasks_path%>
+    <br>
+      <div data-controller="tasks">
+        <div class="mb-3">
+          <div class="col-auto my-1">
+          <%= form_tag(tasks_path, method: "get" ,class: "form-select form-select-lg mb-3",id: "status_filter_form") do %>
+            <%= select_tag :status, options_for_select([['all', ''], ['To do', 0], ['In progress', 1], ['Complete', 2]]), prompt: 'Select status', onchange: "submitForm()"%>
+          <% end %>
+          </div>   
+        </div>
+
+        <div id=table>
+          <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
+        </div>
+          <%= turbo_frame_tag Task.new%>
+      <div>
+        
+          <%= link_to "New Task", new_task_path,
+          class: "btn btn-primary",
+          data: { turbo_frame: dom_id(Task.new) }
+          %>
+      </div>
+        <%= paginate @tasks,  class: "pagination"%>
+      </main>
     </div>
-  <br>
-    <div data-controller="tasks">
-      <div class="mb-3">
-        <div class="col-auto my-1">
-        <%= form_tag(tasks_path, method: "get" ,class: "form-select form-select-lg mb-3",id: "status_filter_form") do %>
-          <%= select_tag :status, options_for_select([['all', ''], ['To do', 0], ['In progress', 1], ['Complete', 2]]), prompt: 'Select status', onchange: "submitForm()"%>
-        <% end %>
-        </div>   
-      </div>
-
-
-      <div id=table>
-        <%= render partial: 'task_rows', locals: { tasks: @tasks } %>
-      </div>
-        <%= turbo_frame_tag Task.new%>
-  <div>
-    
-      <%= link_to "New Task", new_task_path,
-       class: "btn btn-primary",
-       data: { turbo_frame: dom_id(Task.new) }
-       %>
-   </div>
-    <%= paginate @tasks,  class: "pagination"%>
+  </div>
 </body>
 <script>
   function submitForm() {

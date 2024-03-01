@@ -4,10 +4,10 @@
   <title>User Profile</title>
 </head>
 <body>
-  <nav class="header-nav">
-    <%= link_to user_avatar(current_user.first_name), show_user_registration_path %>
-    <%= link_to "Home", root_path %>
-    <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+  <nav class="navbar navbar-dark bg-dark">
+    <%= link_to user_avatar(current_user.first_name), show_user_registration_path, style: "color: white;" %>
+    <%= link_to "Home", root_path , style: "color: white;"%>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, style: "color: white;" %>
   </nav>
 
   <div class="user-profile">
@@ -17,6 +17,5 @@
   <br>
 
   <%= link_to 'Edit Profile', edit_user_registration_path, class: 'edit-profile-btn' %>
-
 </body>
 </html>
