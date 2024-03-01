@@ -2,11 +2,11 @@
 <html>
 <head>
   <% if user_signed_in? %>
-    <div>
+    <nav class="navbar navbar-dark bg-dark">
       <%= link_to user_avatar(current_user.first_name) , show_user_registration_path%>
       <%= link_to "Home", root_path %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-    </div>
+    </nav>
     <% else %>
     <% end %>
   <p class="h4">Task Manager</p>
